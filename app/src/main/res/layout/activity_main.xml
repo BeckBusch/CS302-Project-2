@@ -13,7 +13,7 @@
         android:id="@+id/Logo"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="Logo"
+        android:src="@drawable/logo"
         app:layout_constraintTop_toTopOf="parent"
         />
 
@@ -74,20 +74,22 @@
 
 
     <RelativeLayout
-        android:id="@+id/GamingLayout"
-        style="@style/MainScreen"
-        android:layout_width="match_parent"
+        android:background="@drawable/rounded_rectangle_indigo"
         android:layout_height="100dp"
+        android:id="@+id/GamingLayout"
+        android:layout_width="match_parent"
+        android:onClick="ShowGamingActivity"
         android:layout_marginTop="44dp"
-        android:background="@color/indigo_dark"
         app:layout_constraintTop_toBottomOf="@+id/TopPicks"
         tools:layout_editor_absoluteX="16dp">
 
         <ImageView
             android:id="@+id/GamingImage"
-            android:layout_width="wrap_content"
+            android:scaleType="centerCrop"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_alignParentStart="true"
+            android:src="@drawable/monitor1" />
 
         <TextView
             android:id="@+id/GamingTitle"
@@ -96,6 +98,7 @@
             android:layout_marginStart="0dp"
             android:layout_toEndOf="@+id/GamingImage"
             android:text="Gaming Monitors"
+            android:textSize="30dp"
             android:textColor="@color/white" />
 
         <TextView
@@ -111,20 +114,22 @@
     </RelativeLayout>
 
     <RelativeLayout
-        style="@style/MainScreen"
         android:id="@+id/BusinessLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/indigo_dark"
+        android:background="@drawable/rounded_rectangle_indigo"
+        android:onClick="ShowBusinessActivity"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
         app:layout_constraintTop_toBottomOf="@+id/GamingLayout"
         tools:layout_editor_absoluteX="16dp">
 
         <ImageView
             android:id="@+id/BusinessImage"
-            android:layout_width="wrap_content"
+            android:scaleType="centerCrop"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_alignParentStart="true"
+            android:src="@drawable/monitor1" />
 
         <TextView
             android:id="@+id/BusinessTitle"
@@ -133,6 +138,7 @@
             android:layout_marginStart="0dp"
             android:layout_toEndOf="@+id/BusinessImage"
             android:text="Business Monitors"
+            android:textSize="30dp"
             android:textColor="@color/white" />
 
         <TextView
@@ -149,18 +155,20 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        style="@style/MainScreen"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/indigo_dark"
+        android:background="@drawable/rounded_rectangle_indigo"
+        android:onClick="ShowDesignActivity"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="31dp">
 
         <ImageView
             android:id="@+id/DesignImage"
-            android:layout_width="wrap_content"
+            android:scaleType="centerCrop"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_alignParentStart="true"
+            android:src="@drawable/monitor1"/>
 
         <TextView
             android:id="@+id/DesignTitle"
@@ -169,6 +177,7 @@
             android:layout_marginStart="0dp"
             android:layout_toEndOf="@+id/DesignImage"
             android:text="Design Monitors"
+            android:textSize="30dp"
             android:textColor="@color/white" />
 
         <TextView

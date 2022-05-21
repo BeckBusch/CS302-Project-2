@@ -15,7 +15,7 @@
         <activity
             android:name=".CategoryActivity"
             android:exported="false"
-            android:label="@string/title_activity_gaming"
+            android:label="Gaming Monitors"
             android:theme="@style/Theme.Project2_Imago.NoActionBar" />
         <activity
             android:name=".MainActivity"
