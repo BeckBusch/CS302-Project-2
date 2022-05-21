@@ -1,0 +1,31 @@
+Name,category,price,brand,screenSize,aspectRatio,resolution,responceRate,refreshRate,isCurved,panelType,vesaSize,isTouch
+Vital Strats 120,Gaming,592,AOC,24,16:9,1920x1080,8,120,FALSE,,,
+Edge Gaming 27Z,Gaming,978,AOC,27,16:9,1920x1080,1,144,FALSE,,,
+UltraGear27,Gaming,966,AOC,27,16:9,1920x1080,1,144,FALSE,,,
+UltraGear34,Gaming,1369,AOC,34,16:9,1920x1080,1,144,TRUE,,,
+SlimPro24,Gaming,430,Titan Army,24,16:9,1920x1080,5,120,FALSE,,,
+Edge Gaming 27S,Gaming,826,AOC,27,16:9,1920x1080,1,144,FALSE,,,
+Samsung Odyssey,Gaming,1508,Samsung,34,16:9,2560x1440,1,144,TRUE,,,
+Adventure Gamer 9,Gaming,1437,Samsung,34,16:9,2560x1440,1,144,FALSE,,,
+Vital Strats 144,Gaming,593,AOC,24,16:9,1920x1080,1,144,FALSE,,,
+TUF VG24,Gaming,404,Titan Army,24,16:9,1920x1080,8,120,FALSE,,,
+Dell ,Business,241,Dell,24,16:9,,,,,,100,FALSE
+LG Ultrafine 24,Business,824,LG,24,16:9,,,,,,100,TRUE
+,Business,645,Dell,24,16:9,,,,,,120,TRUE
+LG Ultrafine 27,Business,663,LG,27,16:9,,,,,,100,TRUE
+,Business,619,Dell,27,16:9,,,,,,120,FALSE
+,Business,283,Dell,27,16:9,,,,,,100,FALSE
+,Business,211,Dell,24,5:4,,,,,,100,FALSE
+,Business,233,Dell,24,5:4,,,,,,120,FALSE
+,Business,436,Dell,24,5:4,,,,,,100,FALSE
+LG Macro 24,Business,866,LG,24,5:4,,,,,,100,TRUE
+,Design,1170,LG,27,16:9,3840x2160,,,,IPS,,
+,Design,1138,ASUS,27,16:9,1920x1080,,,,VA,,
+,Design,1286,ASUS,27,16:9,3840x2160,,,,IPS,,
+,Design,1807,LG,34,16:9,1920x1080,,,,IPS,,
+,Design,1176,ASUS,27,21:9,3440x1440,,,,IPS,,
+,Design,1786,ASUS,27,21:9,5120x2160,,,,IPS,,
+,Design,1517,LG,27,21:9,5120x2160,,,,IPS,,
+,Design,1883,ASUS,34,21:9,5120x2160,,,,IPS,,
+,Design,852,LG,27,21:9,3440x1440,,,,VA,,
+,Design,2233,ASUS,34,21:9,5120x2160,,,,IPS,,
