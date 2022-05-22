@@ -5,20 +5,8 @@ import java.util.Map;
 public class DataProvider {
 
 
-
-    public void generateGamingData(){
-
+    public static void getTopPicks() {
     }
 
-    public void generateBusinessData(){
 
-    }
-
-    public void generateDesignData(){
-
-    }
-
-    public void generateTopPicks(){
-        
-    }
 }

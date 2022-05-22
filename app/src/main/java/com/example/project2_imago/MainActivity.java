@@ -1,6 +1,7 @@
 package com.example.project2_imago;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+        DataProvider.getTopPicks();
     }
+
 
     public void ShowGamingActivity(View view){
         Intent gamingActivity= new Intent(this, CategoryActivity.class);
