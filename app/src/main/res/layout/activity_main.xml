@@ -59,21 +59,21 @@
 
 
     <RelativeLayout
-        android:background="@drawable/rounded_rectangle_indigo"
-        android:layout_height="100dp"
         android:id="@+id/GamingLayout"
         android:layout_width="match_parent"
-        android:onClick="ShowGamingActivity"
+        android:layout_height="100dp"
         android:layout_marginTop="44dp"
+        android:background="@drawable/rounded_rectangle_indigo"
+        android:onClick="ShowGamingActivity"
         app:layout_constraintTop_toBottomOf="@+id/TopPicks"
         tools:layout_editor_absoluteX="16dp">
 
         <ImageView
             android:id="@+id/GamingImage"
-            android:scaleType="centerCrop"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:scaleType="centerCrop"
             android:src="@drawable/monitor1" />
 
         <TextView
@@ -83,8 +83,8 @@
             android:layout_marginStart="0dp"
             android:layout_toEndOf="@+id/GamingImage"
             android:text="Gaming Monitors"
-            android:textSize="30dp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/GamingDescription"

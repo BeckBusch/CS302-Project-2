@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.DrawableRes;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -74,7 +73,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         TextView textview = viewHolder.nametextView;
         textview.setText(monitor.getName());
         ImageView imageView = viewHolder.pic1ItemView;
-        imageView.setImageDrawable(R.drawable.monitor1);
+        int id = R.drawable.monitor1;
+        imageView.setImageResource(id);
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
         viewHolder.getTextView().setText(monitors.get(position).getName());

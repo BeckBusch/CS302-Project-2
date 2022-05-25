@@ -45,7 +45,7 @@ public class CategoryActivity extends AppCompatActivity {
             names.add(monitors.get(i).getName());
 
         }*/
-        monitors = DataProvider.getData("gaming");
+        monitors = DataProvider.returnCategory("gaming");
         CategoryAdapter GamingAdapter = new CategoryAdapter("gaming");
         RecyclerView GamingRecycler = findViewById(R.id.gamingRecycler);
         GamingRecycler.setAdapter(GamingAdapter);

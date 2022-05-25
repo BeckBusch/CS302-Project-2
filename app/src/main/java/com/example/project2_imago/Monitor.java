@@ -1,84 +1,123 @@
 package com.example.project2_imago;
 
-import java.util.Map;
+abstract class Monitor {
+    String name;
+    boolean isBestselling;
+    int viewCount;
 
-public class Monitor {
+    int screenSize, price;
+    String aspectRatio, brand;
 
-    private String name;
-    private boolean isBestSelling;
-    private int viewCount;
-
-    private int screenSize;
-    private String aspectRatio;
-    private double price;
-    private String brand;
-    private Map<Integer,String> Images; //String holds names of images e.g. Samsung_LU28R550U_img1, map to keep it nice and tidy
-
-    public Monitor(String name, int screenSize, String aspectRatio, double price, String brand, Map<Integer, String> images) {
+    public void Monitor(String name, boolean isBestselling, int viewCount,
+                        int screenSize, int price, String aspectRatio, String brand) {
         this.name = name;
+        this.isBestselling = isBestselling;
+        this.viewCount = viewCount;
         this.screenSize = screenSize;
-        this.aspectRatio = aspectRatio;
         this.price = price;
+        this.aspectRatio = aspectRatio;
         this.brand = brand;
-        this.isBestSelling = false;
-        this.viewCount = 0;
-
-        Images = images;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    boolean getBestselling() {
+        return isBestselling;
     }
 
-    public boolean isBestSelling() {
-        return isBestSelling;
-    }
-
-    public void setBestSelling(boolean bestSelling) {
-        isBestSelling = bestSelling;
-    }
-
-    public int getViewCount() {
+    int getViewCount() {
         return viewCount;
     }
 
-    public void setViewCount(int viewCount) {
-        this.viewCount = viewCount;
-    }
-
-    public int getScreenSize() {
+    int getScreenSize() {
         return screenSize;
     }
 
-    public void setScreenSize(int screenSize) {
-        this.screenSize = screenSize;
-    }
-
-    public String getAspectRatio() {
-        return aspectRatio;
-    }
-
-    public void setAspectRatio(String aspectRatio) {
-        this.aspectRatio = aspectRatio;
-    }
-
-    public double getPrice() {
+    int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    String getAspectRatio() {
+        return aspectRatio;
     }
 
-    public String getBrand() {
+    String getBrand() {
         return brand;
     }
+}
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+class GamingMonitor extends Monitor {
+    int responseTime, refreshRate;
+    String resolution;
+    boolean isCurved;
+
+    GamingMonitor(String name, boolean isBestselling, int viewCount,
+                  int price, String brand, int screenSize, String aspectRatio,
+                  String resolution, int responseTime, int refreshRate, boolean isCurved) {
+        Monitor(name, isBestselling, viewCount, screenSize, price, aspectRatio, brand);
+        this.resolution = resolution;
+        this.responseTime = responseTime;
+        this.refreshRate = refreshRate;
+        this.isCurved = isCurved;
+    }
+
+    public String getResolution() {
+        return resolution;
+    }
+
+    public int getResponseTime() {
+        return responseTime;
+    }
+
+    public int getRefreshRate() {
+        return refreshRate;
+    }
+
+    public boolean getIsCurved() {
+        return isCurved;
+    }
+}
+
+class DesignMonitor extends Monitor {
+    String resolution;
+    String panelType;
+
+    DesignMonitor(String name, boolean isBestselling, int viewCount,
+                  int price, String brand, int screenSize, String aspectRatio,
+                  String resolution, String panelType) {
+        Monitor(name, isBestselling, viewCount, screenSize, price, aspectRatio, brand);
+        this.panelType = panelType;
+        this.resolution = resolution;
+    }
+
+    public String getResolution() {
+        return resolution;
+    }
+
+    public String getPanelType() {
+        return panelType;
+    }
+}
+
+class BusinessMonitor extends Monitor {
+    int vesaSize;
+    boolean isTouchscreen;
+
+    BusinessMonitor(String name, boolean isBestselling, int viewCount,
+                    int price, String brand, int screenSize, String aspectRatio,
+                    int vesaSize, boolean isTouchscreen) {
+        Monitor(name, isBestselling, viewCount, screenSize, price, aspectRatio, brand);
+        this.vesaSize = vesaSize;
+        this.isTouchscreen = isTouchscreen;
+    }
+
+    public int getVesaSize() {
+        return vesaSize;
+    }
+
+    public boolean isTouchscreen() {
+        return isTouchscreen;
     }
 }
