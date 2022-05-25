@@ -1,7 +1,6 @@
 package testing;
 
-abstract class Monitor
-{
+abstract class Monitor {
     String name;
     boolean isBestselling;
     int viewCount;
@@ -10,8 +9,7 @@ abstract class Monitor
     String aspectRatio, brand;
 
     public void Monitor(String name, boolean isBestselling, int viewCount,
-                        int screenSize, int price, String aspectRatio, String brand)
-    {
+                        int screenSize, int price, String aspectRatio, String brand) {
         this.name = name;
         this.isBestselling = isBestselling;
         this.viewCount = viewCount;
@@ -24,35 +22,40 @@ abstract class Monitor
     String getName() {
         return name;
     }
+
     boolean getBestselling() {
         return isBestselling;
     }
+
     int getViewCount() {
         return viewCount;
     }
+
     int getScreenSize() {
         return screenSize;
     }
+
     int getPrice() {
         return price;
     }
+
     String getAspectRatio() {
         return aspectRatio;
     }
+
     String getBrand() {
         return brand;
     }
 }
 
-class GamingMonitor extends Monitor
-{
-    int resolution, responseTime, refreshRate;
+class GamingMonitor extends Monitor {
+    int responseTime, refreshRate;
+    String resolution;
     boolean isCurved;
 
     GamingMonitor(String name, boolean isBestselling, int viewCount,
-                  int screenSize, int price,  String aspectRatio, String brand,
-                  int resolution, int responseTime, int refreshRate, boolean isCurved)
-    {
+                  int price, String brand, int screenSize, String aspectRatio,
+                  String resolution, int responseTime, int refreshRate, boolean isCurved) {
         Monitor(name, isBestselling, viewCount, screenSize, price, aspectRatio, brand);
         this.resolution = resolution;
         this.responseTime = responseTime;
@@ -60,36 +63,39 @@ class GamingMonitor extends Monitor
         this.isCurved = isCurved;
     }
 
-    public int getResolution() {
+    public String getResolution() {
         return resolution;
     }
+
     public int getResponseTime() {
         return responseTime;
     }
+
     public int getRefreshRate() {
         return refreshRate;
     }
+
     public boolean getIsCurved() {
         return isCurved;
     }
 }
 
 class DesignMonitor extends Monitor {
-    int resolution;
+    String resolution;
     String panelType;
 
     DesignMonitor(String name, boolean isBestselling, int viewCount,
-                  int screenSize, int price, String aspectRatio, String brand,
-                  int resolution, String panelType)
-    {
+                  int price, String brand, int screenSize, String aspectRatio,
+                  String resolution, String panelType) {
         Monitor(name, isBestselling, viewCount, screenSize, price, aspectRatio, brand);
         this.panelType = panelType;
         this.resolution = resolution;
     }
 
-    public int getResolution() {
+    public String getResolution() {
         return resolution;
     }
+
     public String getPanelType() {
         return panelType;
     }
@@ -100,9 +106,8 @@ class BusinessMonitor extends Monitor {
     boolean isTouchscreen;
 
     BusinessMonitor(String name, boolean isBestselling, int viewCount,
-                  int screenSize, int price, String aspectRatio, String brand,
-                  int vesaSize, boolean isTouchscreen)
-    {
+                    int price, String brand, int screenSize, String aspectRatio,
+                    int vesaSize, boolean isTouchscreen) {
         Monitor(name, isBestselling, viewCount, screenSize, price, aspectRatio, brand);
         this.vesaSize = vesaSize;
         this.isTouchscreen = isTouchscreen;
@@ -111,6 +116,7 @@ class BusinessMonitor extends Monitor {
     public int getVesaSize() {
         return vesaSize;
     }
+
     public boolean isTouchscreen() {
         return isTouchscreen;
     }
