@@ -1,12 +1,14 @@
 package com.example.project2_imago;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.DrawableRes;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -21,7 +23,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
      * Provide a reference to the type of views that you are using (custom ViewHolder)
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+
+        public TextView nametextView;
+        public ImageView pic1ItemView;
 
         public ViewHolder(View v) {
             super(v);
@@ -32,27 +36,29 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                     Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
                 }
             });
-            textView = (TextView) v.findViewById(R.id.textview_first);
+            nametextView = (TextView) v.findViewById(R.id.textview_first);
+            pic1ItemView = (ImageView) v.findViewById(R.id.Monitor_Pic1);
         }
 
         public TextView getTextView() {
-            return textView;
+            return nametextView;
         }
     }
     // END_INCLUDE(recyclerViewSampleViewHolder)
 
     public CategoryAdapter(String category) {
 
-        monitors = DataProvider.getData(category);
+        monitors = DataProvider.returnCategory(category);
     }
 
     // END_INCLUDE(recyclerViewOnCreateViewHolder)
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public CategoryAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view.
-        View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.text_row_item, viewGroup, false);
+        Context context = viewGroup.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View v = inflater.inflate(R.layout.text_row_item, viewGroup, false);
 
         return new ViewHolder(v);
     }
@@ -63,6 +69,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Log.d(TAG, "Element " + position + " set.");
 
+        Monitor monitor = monitors.get(position);
+
+        TextView textview = viewHolder.nametextView;
+        textview.setText(monitor.getName());
+        ImageView imageView = viewHolder.pic1ItemView;
+        imageView.setImageDrawable(R.drawable.monitor1);
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
         viewHolder.getTextView().setText(monitors.get(position).getName());
@@ -70,7 +82,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return 0;
+        return monitors.size();
     }
     // END_INCLUDE(recyclerViewOnBindViewHolder)
 

@@ -7,15 +7,19 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project2_imago.databinding.ActivityGamingBinding;
+
+import java.util.ArrayList;
 
 public class CategoryActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityGamingBinding binding;
 
+    ArrayList<Monitor> monitors;
     ItemViewHolder vh;
 
     @Override
@@ -41,9 +45,11 @@ public class CategoryActivity extends AppCompatActivity {
             names.add(monitors.get(i).getName());
 
         }*/
+        monitors = DataProvider.getData("gaming");
         CategoryAdapter GamingAdapter = new CategoryAdapter("gaming");
         RecyclerView GamingRecycler = findViewById(R.id.gamingRecycler);
         GamingRecycler.setAdapter(GamingAdapter);
+        GamingRecycler.setLayoutManager(new LinearLayoutManager(this));
 
 
         //vh.tempTextView.setText(text);
