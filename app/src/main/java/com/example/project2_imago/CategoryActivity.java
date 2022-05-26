@@ -1,12 +1,11 @@
 package com.example.project2_imago;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,9 +29,6 @@ public class CategoryActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_activity_gaming);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
         RecyclerView GamingRecycler = (RecyclerView) findViewById(R.id.gamingRecycler);
 
@@ -42,12 +38,9 @@ public class CategoryActivity extends AppCompatActivity {
         GamingRecycler.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_activity_gaming);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+    public void showSearchActivity(View view){
+        Intent searchActivity= new Intent(this, CategoryActivity.class);
+        startActivity(searchActivity);
 
 
 }
