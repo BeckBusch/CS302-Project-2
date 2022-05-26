@@ -61,7 +61,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         textview.setText(name);
 
         ImageView imageView = viewHolder.getImageView();
-        int id = R.drawable.monitor1;
+        String drawName = monitor.getDrawableName();
+        Context context = imageView.getContext();
+        System.out.println(drawName);
+        int id = context.getResources().getIdentifier(drawName,"drawable", context.getPackageName());
+
         imageView.setImageResource(id);
     }
 

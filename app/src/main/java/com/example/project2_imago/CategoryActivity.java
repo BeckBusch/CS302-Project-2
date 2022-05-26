@@ -38,9 +38,19 @@ public class CategoryActivity extends AppCompatActivity {
         GamingRecycler.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public void showSearchActivity(View view){
-        Intent searchActivity= new Intent(this, CategoryActivity.class);
+    public void showSearchActivity(View view) {
+        Intent searchActivity = new Intent(this, CategoryActivity.class);
         startActivity(searchActivity);
+    }
 
+    public void showFilterActivity(View view) {
+        Intent filterActivity = new Intent(this,FilterActivity.class);
+        startActivity(filterActivity);
+    }
+
+    public void showItemActivity(View view) {
+        Intent itemActivity = new Intent(this, ItemActivity.class);
+        startActivity(itemActivity);
+    }
 
 }

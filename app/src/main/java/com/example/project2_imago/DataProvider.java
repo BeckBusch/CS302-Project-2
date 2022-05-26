@@ -22,7 +22,7 @@ public class DataProvider {
         MonitorData.add(new DesignMonitor("ASUS Designer", false, 0, 1286, "ASUS", 27, "16:9", "3840x2160", "IPS"));
         MonitorData.add(new DesignMonitor("LG Technik Pro", false, 0, 1807, "LG", 34, "16:9", "1920x1080", "IPS"));
         MonitorData.add(new DesignMonitor("ASUS L96 Create", false, 0, 1176, "ASUS", 27, "21:9", "3440x1440", "IPS"));
-        MonitorData.add(new DesignMonitor("ASUS L100 Create+", false, 0, 1786, "ASUS", 27, "21:9", "5120x2160", "IPS"));
+        MonitorData.add(new DesignMonitor("ASUS L100 Create Plus", false, 0, 1786, "ASUS", 27, "21:9", "5120x2160", "IPS"));
         MonitorData.add(new DesignMonitor("LG Pro Workstation", false, 0, 1517, "LG", 27, "21:9", "5120x2160", "IPS"));
         MonitorData.add(new DesignMonitor("ASUS Revolution", false, 0, 1883, "ASUS", 34, "21:9", "5120x2160", "IPS"));
         MonitorData.add(new DesignMonitor("LG Mini Designer", false, 0, 852, "LG", 27, "21:9", "3440x1440", "VA"));

@@ -1,5 +1,7 @@
 package com.example.project2_imago;
 
+import java.util.Locale;
+
 abstract class Monitor {
     String name;
     boolean isBestselling;
@@ -46,6 +48,12 @@ abstract class Monitor {
     String getBrand() {
         return brand;
     }
+
+    public String getDrawableName(){
+        String tempName = getName();
+        tempName = tempName.replaceAll(" ", "_").toLowerCase(Locale.ROOT);
+        return (tempName+"_1");
+    }
 }
 
 class GamingMonitor extends Monitor {
@@ -78,6 +86,8 @@ class GamingMonitor extends Monitor {
     public boolean getIsCurved() {
         return isCurved;
     }
+
+
 }
 
 class DesignMonitor extends Monitor {

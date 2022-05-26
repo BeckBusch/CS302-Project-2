@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    String category;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,16 +21,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void ShowGamingActivity(View view){
         Intent gamingActivity= new Intent(this, CategoryActivity.class);
+        category = "Gaming";
         startActivity(gamingActivity);
     }
 
     public void ShowBusinessActivity(View view){
         Intent businessActivity= new Intent(this, CategoryActivity.class);
+        category = "Business";
         startActivity(businessActivity);
     }
 
     public void ShowDesignActivity(View view){
         Intent designActivity= new Intent(this, CategoryActivity.class);
+        category = "Design";
         startActivity(designActivity);
     }
 }
