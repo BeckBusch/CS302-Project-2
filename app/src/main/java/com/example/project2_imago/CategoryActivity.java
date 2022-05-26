@@ -25,7 +25,6 @@ public class CategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityGamingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -35,31 +34,12 @@ public class CategoryActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        /*vh = new ItemViewHolder();
-        ArrayList<Monitor> monitors = DataProvider.generateData("gaming");
-        ArrayList<String> names = new ArrayList<>();
-        String text = "";
-        for (int i = 0; i < monitors.size(); i++)
-        {
-            text+= monitors.get(i).getName()+"\n";
-            names.add(monitors.get(i).getName());
+        RecyclerView GamingRecycler = (RecyclerView) findViewById(R.id.gamingRecycler);
 
-        }*/
-        monitors = DataProvider.returnCategory("gaming");
-        CategoryAdapter GamingAdapter = new CategoryAdapter("gaming");
-        RecyclerView GamingRecycler = findViewById(R.id.gamingRecycler);
+        monitors = DataProvider.returnCategory("Gaming");
+        CategoryAdapter GamingAdapter = new CategoryAdapter(monitors);
         GamingRecycler.setAdapter(GamingAdapter);
         GamingRecycler.setLayoutManager(new LinearLayoutManager(this));
-
-
-        //vh.tempTextView.setText(text);
-        /*binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
     }
 
     @Override

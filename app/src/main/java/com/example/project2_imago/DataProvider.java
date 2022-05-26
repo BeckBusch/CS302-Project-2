@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class DataProvider {
     private static ArrayList<Monitor> MonitorData;
 
-    public void DataProvider() {
+    public void addDataProvider() {
         MonitorData.add(new GamingMonitor("Vital Strats 120", false, 0, 592, "AOC", 24, "16:9", "1920x1080", 8, 120, false));
         MonitorData.add(new GamingMonitor("Edge Gaming 27Z", false, 0, 978, "AOC", 27, "16:9", "1920x1080", 1, 144, false));
         MonitorData.add(new GamingMonitor("UltraGear27", false, 0, 966, "AOC", 27, "16:9", "1920x1080", 1, 144, false));
@@ -40,15 +40,25 @@ public class DataProvider {
         MonitorData.add(new BusinessMonitor("LG Macro 24", false, 0, 866, "LG", 24, "5:4", 100, true));
     }
     public static ArrayList<Monitor> returnCategory(String category) {
-        ArrayList<Monitor> TempResults = new ArrayList<Monitor>();
-
+        ArrayList<Monitor> TempResults = new ArrayList<>();
         switch (category){
             case "Gaming":
-                for (Monitor temp : MonitorData){
-                    if (temp instanceof GamingMonitor) {
-                        TempResults.add((GamingMonitor) temp);
-                    }
-                }
+//                for (Monitor temp : MonitorData){
+//                    if (temp instanceof GamingMonitor) {
+//                        TempResults.add(temp);
+//                    }
+//                }
+                TempResults.add(new GamingMonitor("Vital Strats 120", false, 0, 592, "AOC", 24, "16:9", "1920x1080", 8, 120, false));
+                TempResults.add(new GamingMonitor("Edge Gaming 27Z", false, 0, 978, "AOC", 27, "16:9", "1920x1080", 1, 144, false));
+                TempResults.add(new GamingMonitor("UltraGear27", false, 0, 966, "AOC", 27, "16:9", "1920x1080", 1, 144, false));
+                TempResults.add(new GamingMonitor("UltraGear34", false, 0, 1369, "AOC", 34, "16:9", "1920x1080", 1, 144, true));
+                TempResults.add(new GamingMonitor("SlimPro24", false, 0, 430, "Titan Army", 24, "16:9", "1920x1080", 5, 120, false));
+                TempResults.add(new GamingMonitor("Edge Gaming 27S", false, 0, 826, "AOC", 27, "16:9", "1920x1080", 1, 144, false));
+                TempResults.add(new GamingMonitor("Samsung Odyssey", false, 0, 1508, "Samsung", 34, "16:9", "2560x1440", 1, 144, true));
+                TempResults.add(new GamingMonitor("Adventure Gamer 9", false, 0, 1437, "Samsung", 34, "16:9", "2560x1440", 1, 144, false));
+                TempResults.add(new GamingMonitor("Vital Strats 144", false, 0, 593, "AOC", 24, "16:9", "1920x1080", 1, 144, false));
+                TempResults.add(new GamingMonitor("TUF VG24", false, 0, 404, "Titan Army", 24, "16:9", "1920x1080", 8, 120, false));
+
                 return TempResults;
 
             case "Business":

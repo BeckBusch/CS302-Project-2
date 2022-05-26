@@ -1,7 +1,6 @@
 package com.example.project2_imago;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,37 +16,26 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     private ArrayList<Monitor> monitors;
 
-    // BEGIN_INCLUDE(recyclerViewSampleViewHolder)
-    /**
-     * Provide a reference to the type of views that you are using (custom ViewHolder)
-     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView nametextView;
+        public TextView nameTextView;
         public ImageView pic1ItemView;
 
         public ViewHolder(View v) {
             super(v);
-            // Define click listener for the ViewHolder's View.
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
-                }
-            });
-            nametextView = (TextView) v.findViewById(R.id.textview_first);
-            pic1ItemView = (ImageView) v.findViewById(R.id.Monitor_Pic1);
+            this.nameTextView = (TextView) v.findViewById(R.id.Monitor_Name);
+            this.pic1ItemView = (ImageView) v.findViewById(R.id.Monitor_Pic1);
         }
 
         public TextView getTextView() {
-            return nametextView;
+            return nameTextView;
         }
+        public ImageView getImageView() { return  pic1ItemView;}
     }
     // END_INCLUDE(recyclerViewSampleViewHolder)
 
-    public CategoryAdapter(String category) {
-
-        monitors = DataProvider.returnCategory(category);
+    public CategoryAdapter(ArrayList<Monitor> monitorList) {
+        this.monitors = monitorList;
     }
 
     // END_INCLUDE(recyclerViewOnCreateViewHolder)
@@ -57,7 +45,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         // Create a new view.
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View v = inflater.inflate(R.layout.text_row_item, viewGroup, false);
+        View v = inflater.inflate(R.layout.recycler_item, viewGroup, false);
 
         return new ViewHolder(v);
     }
@@ -65,19 +53,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     // BEGIN_INCLUDE(recyclerViewOnBindViewHolder)
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        Log.d(TAG, "Element " + position + " set.");
-
+    public void onBindViewHolder(CategoryAdapter.ViewHolder viewHolder, int position) {
         Monitor monitor = monitors.get(position);
+        TextView textview = viewHolder.getTextView();
+        String name;
+        name = monitor.getName();
+        textview.setText(name);
 
-        TextView textview = viewHolder.nametextView;
-        textview.setText(monitor.getName());
-        ImageView imageView = viewHolder.pic1ItemView;
+        ImageView imageView = viewHolder.getImageView();
         int id = R.drawable.monitor1;
         imageView.setImageResource(id);
-        // Get element from your dataset at this position and replace the contents of the view
-        // with that element
-        viewHolder.getTextView().setText(monitors.get(position).getName());
     }
 
     @Override
