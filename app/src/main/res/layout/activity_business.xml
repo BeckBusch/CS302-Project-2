@@ -17,7 +17,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/teal"
             android:elevation="4dp"
-            android:title="Design Monitors"/>
+            android:title="Business Monitors"/>
         <!--            app:popupTheme="@style/Theme.Project2_Imago.PopupOverlay" />-->
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -50,7 +50,7 @@
             android:layout_height="50dp" />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/designRecycler"
+        android:id="@+id/businessRecycler"
         android:layout_width="match_parent"
         android:layout_height="627dp"
         android:layout_marginTop="114dp" />

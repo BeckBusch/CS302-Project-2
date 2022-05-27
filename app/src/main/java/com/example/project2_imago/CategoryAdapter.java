@@ -27,6 +27,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             this.pic1ItemView = (ImageView) v.findViewById(R.id.Monitor_Pic1);
         }
 
+
         public TextView getTextView() {
             return nameTextView;
         }

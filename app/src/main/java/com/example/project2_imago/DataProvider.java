@@ -62,19 +62,42 @@ public class DataProvider {
                 return TempResults;
 
             case "Business":
-                for (Monitor temp : MonitorData){
-                    if (temp instanceof BusinessMonitor) {
-                        TempResults.add(temp);
-                    }
-                }
+//                for (Monitor temp : MonitorData){
+//                    if (temp instanceof BusinessMonitor) {
+//                        TempResults.add(temp);
+//                    }
+//                }
+                TempResults.add(new BusinessMonitor("Dell", false, 0, 241, "Dell", 24, "16:9", 100, false));
+                TempResults.add(new BusinessMonitor("LG Ultrafine 24", false, 0, 824, "LG", 24, "16:9", 100, true));
+                TempResults.add(new BusinessMonitor("Dell Super Optic", false, 0, 645, "Dell", 24, "16:9", 120, true));
+                TempResults.add(new BusinessMonitor("LG Ultrafine 27", false, 0, 663, "LG", 27, "16:9", 100, true));
+                TempResults.add(new BusinessMonitor("Dell Super Optic 27", false, 0, 619, "Dell", 27, "16:9", 120, false));
+                TempResults.add(new BusinessMonitor("Dell SuperFine27", false, 0, 283, "Dell", 27, "16:9", 100, false));
+                TempResults.add(new BusinessMonitor("LG Micro", false, 0, 211, "Dell", 24, "5:4", 100, false));
+                TempResults.add(new BusinessMonitor("LG Mini", false, 0, 233, "Dell", 24, "5:4", 120, false));
+                TempResults.add(new BusinessMonitor("Dell SuperFine24", false, 0, 436, "Dell", 24, "5:4", 100, false));
+                TempResults.add(new BusinessMonitor("LG Macro 24", false, 0, 866, "LG", 24, "5:4", 100, true));
+
                 return TempResults;
 
             case "Design":
-                for (Monitor temp : MonitorData){
-                    if (temp instanceof DesignMonitor) {
-                        TempResults.add(temp);
-                    }
-                }
+//                for (Monitor temp : MonitorData){
+//                    if (temp instanceof DesignMonitor) {
+//                        TempResults.add(temp);
+//                    }
+//                }
+
+                TempResults.add(new DesignMonitor("LG Technik", false, 0, 1170, "LG", 27, "16:9", "3840x2160", "IPS"));
+                TempResults.add(new DesignMonitor("ASUS Revolution Mini", false, 0, 1138, "ASUS", 27, "16:9", "1920x1080", "VA"));
+                TempResults.add(new DesignMonitor("ASUS Designer", false, 0, 1286, "ASUS", 27, "16:9", "3840x2160", "IPS"));
+                TempResults.add(new DesignMonitor("LG Technik Pro", false, 0, 1807, "LG", 34, "16:9", "1920x1080", "IPS"));
+                TempResults.add(new DesignMonitor("ASUS L96 Create", false, 0, 1176, "ASUS", 27, "21:9", "3440x1440", "IPS"));
+                TempResults.add(new DesignMonitor("ASUS L100 Create Plus", false, 0, 1786, "ASUS", 27, "21:9", "5120x2160", "IPS"));
+                TempResults.add(new DesignMonitor("LG Pro Workstation", false, 0, 1517, "LG", 27, "21:9", "5120x2160", "IPS"));
+                TempResults.add(new DesignMonitor("ASUS Revolution", false, 0, 1883, "ASUS", 34, "21:9", "5120x2160", "IPS"));
+                TempResults.add(new DesignMonitor("LG Mini Designer", false, 0, 852, "LG", 27, "21:9", "3440x1440", "VA"));
+                TempResults.add(new DesignMonitor("ASUS Designer Mega", false, 0, 2233, "ASUS", 34, "21:9", "5120x2160", "IPS"));
+
                 return TempResults;
 
             default:
