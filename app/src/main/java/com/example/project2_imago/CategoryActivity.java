@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project2_imago.databinding.ActivityGamingBinding;
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,11 @@ public class CategoryActivity extends AppCompatActivity {
     public void showItemActivity(View view) {
         Intent itemActivity = new Intent(this, ItemActivity.class);
         startActivity(itemActivity);
+    }
+
+    public void goBack(View view) {
+        finish();
+        Animatoo.animateSlideRight(this);
     }
 
 }
