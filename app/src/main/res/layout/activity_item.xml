@@ -65,6 +65,7 @@
         tools:layout_editor_absoluteX="10dp">
 
         <TableLayout
+            android:id="@+id/specsTable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="@color/teal_dark">
@@ -104,6 +105,97 @@
 
                 <TextView
                     android:id="@+id/aR"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Resolution:" />
+
+                <TextView
+                    android:id="@+id/resolution"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Response Time:" />
+
+                <TextView
+                    android:id="@+id/rT"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Refresh Rate:" />
+
+                <TextView
+                    android:id="@+id/rR"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Curved:" />
+
+                <TextView
+                    android:id="@+id/curved"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Panel Type:" />
+
+                <TextView
+                    android:id="@+id/pT"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Vesa Size" />
+
+                <TextView
+                    android:id="@+id/vS"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Touchscreen" />
+
+                <TextView
+                    android:id="@+id/tS"
                     android:layout_width="match_parent"
                     android:layout_height="50dp" />
             </TableRow>

@@ -74,4 +74,6 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         Log.i("Open",monitor.getName());
         startActivity(i);
     }
+
+
 }

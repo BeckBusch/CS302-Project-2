@@ -1,11 +1,15 @@
 package com.example.project2_imago;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,7 +44,10 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         Bundle extras = getIntent().getExtras();
         category = extras.getString("category");
 
+
+
         if (Objects.equals(category, "Gaming")) {
+            setTitle("Gaming Monitors");
             bindingGaming = ActivityGamingBinding.inflate(getLayoutInflater());
             setContentView(bindingGaming.getRoot());
             setSupportActionBar(bindingGaming.toolbar);
@@ -49,6 +56,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
 
         }
         else if (Objects.equals(category, "Design")) {
+            setTitle("Design Monitors");
             bindingDesign = ActivityDesignBinding.inflate(getLayoutInflater());
             setContentView(bindingDesign.getRoot());
             setSupportActionBar(bindingDesign.toolbar);
@@ -57,6 +65,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         }
 
         else if (Objects.equals(category, "Business")) {
+            setTitle("Business Monitors");
             bindingBusiness = ActivityBusinessBinding.inflate(getLayoutInflater());
             setContentView(bindingBusiness.getRoot());
             setSupportActionBar(bindingBusiness.toolbar);
@@ -68,6 +77,13 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setClickListener(this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Toolbar myChildToolbar =
+                (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myChildToolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     public void showSearchActivity(View view) {
@@ -97,9 +113,39 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         i.putExtra("aspectRatio",monitor.getAspectRatio());
         i.putExtra("brand",monitor.getBrand());
         i.putExtra("price",monitor.getPrice());
+
+        if (monitor instanceof GamingMonitor) {
+            GamingMonitor gMonitor = (GamingMonitor) monitor;
+            i.putExtra("category","Gaming");
+            i.putExtra("resolution",gMonitor.getResolution());
+            i.putExtra("refreshRate",gMonitor.getRefreshRate());
+            i.putExtra("responseTime",gMonitor.getResponseTime());
+            i.putExtra("curved",gMonitor.getIsCurved());
+        }
+
+        else if (monitor instanceof BusinessMonitor) {
+            BusinessMonitor gMonitor = (BusinessMonitor) monitor;
+            i.putExtra("category","Business");
+            i.putExtra("vesaSize",gMonitor.getVesaSize());
+            i.putExtra("touchscreen",gMonitor.isTouchscreen());
+        }
+
+        else if (monitor instanceof DesignMonitor) {
+            DesignMonitor gMonitor = (DesignMonitor) monitor;
+            i.putExtra("category","Gaming");
+            i.putExtra("resolution",gMonitor.getResolution());
+            i.putExtra("panelType",gMonitor.getPanelType());
+        }
         System.out.println(monitor.getName());
         Log.i("Open",monitor.getName());
         startActivity(i);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.category_action_bar, menu);
+        return true;
     }
 
 

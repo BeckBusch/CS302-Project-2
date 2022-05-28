@@ -15,7 +15,8 @@
         <activity
             android:name=".CategoryActivity"
             android:exported="false"
-            android:theme="@style/Theme.Project2_Imago.NoActionBar" />
+            android:theme="@style/Theme.Project2_Imago.NoActionBar"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".FilterActivity"
             android:exported="false"/>
