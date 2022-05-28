@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         final Monitor monitor = monitors.get(position);
         Intent i = new Intent(this,ItemActivity.class);
         i.putExtra("name",monitor.getName());
-        i.putExtra("imagelist",monitor.getAllDrawables());
+        i.putExtra("imageList",monitor.getAllDrawables());
         i.putExtra("screenSize",monitor.getScreenSize());
         i.putExtra("aspectRatio",monitor.getAspectRatio());
         i.putExtra("brand",monitor.getBrand());

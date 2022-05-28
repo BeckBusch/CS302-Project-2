@@ -4,26 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".ItemActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_button"
+        android:onClick="goBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/PicRecycler"
-        android:layout_width="match_parent"
+        android:id="@+id/picRecycler"
+        android:layout_width="200dp"
         android:layout_height="200dp"
-        app:layout_constraintTop_toTopOf="parent"></androidx.recyclerview.widget.RecyclerView>
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/Title"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toBottomOf="@+id/PicRecycler">
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:lines="3"
+        android:maxLines="3"
+        android:singleLine="false"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/picRecycler"
+        app:layout_constraintTop_toTopOf="@+id/picRecycler">
 
     </TextView>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/specsTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Title" />
+
     <TextView
         android:id="@+id/specsTitle"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/Title">
+        android:text="Specifications"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/picRecycler"
+        tools:layout_editor_absoluteX="10dp">
 
     </TextView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/specsTitle"
+        tools:layout_editor_absoluteX="10dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/teal_dark">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Brand:                    " />
+
+                <TextView
+                    android:id="@+id/brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Screen Size:" />
+
+                <TextView
+                    android:id="@+id/sS"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Aspect Ratio:" />
+
+                <TextView
+                    android:id="@+id/aR"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
