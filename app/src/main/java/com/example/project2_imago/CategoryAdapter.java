@@ -15,24 +15,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     private static final String TAG = "CustomAdapter";
 
     private ArrayList<Monitor> monitors;
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView nameTextView;
-        public ImageView pic1ItemView;
-
-        public ViewHolder(View v) {
-            super(v);
-            this.nameTextView = (TextView) v.findViewById(R.id.Monitor_Name);
-            this.pic1ItemView = (ImageView) v.findViewById(R.id.Monitor_Pic1);
-        }
+    private ItemClickListener clickListener;
 
 
-        public TextView getTextView() {
-            return nameTextView;
-        }
-        public ImageView getImageView() { return  pic1ItemView;}
-    }
     // END_INCLUDE(recyclerViewSampleViewHolder)
 
     public CategoryAdapter(ArrayList<Monitor> monitorList) {
@@ -64,7 +49,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         ImageView imageView = viewHolder.getImageView();
         String drawName = monitor.getDrawableName();
         Context context = imageView.getContext();
-        System.out.println(drawName);
         int id = context.getResources().getIdentifier(drawName,"drawable", context.getPackageName());
 
         imageView.setImageResource(id);
@@ -75,6 +59,34 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         return monitors.size();
     }
     // END_INCLUDE(recyclerViewOnBindViewHolder)
+
+    public void setClickListener(ItemClickListener itemClickListener) {
+        this.clickListener = itemClickListener;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        public TextView nameTextView;
+        public ImageView pic1ItemView;
+
+        public ViewHolder(View v) {
+            super(v);
+            nameTextView = (TextView) v.findViewById(R.id.Monitor_Name);
+            pic1ItemView = (ImageView) v.findViewById(R.id.Monitor_Pic1);
+            v.setTag(v);
+            v.setOnClickListener((View.OnClickListener) this);
+        }
+
+        public TextView getTextView() {
+            return nameTextView;
+        }
+        public ImageView getImageView() { return  pic1ItemView;}
+
+        @Override
+        public void onClick(View v) {
+            clickListener.onClick(v, getAdapterPosition());
+        }
+    }
 
 }
 

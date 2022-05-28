@@ -1,5 +1,6 @@
 package com.example.project2_imago;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 abstract class Monitor {
@@ -53,6 +54,16 @@ abstract class Monitor {
         String tempName = getName();
         tempName = tempName.replaceAll(" ", "_").toLowerCase(Locale.ROOT);
         return (tempName+"_1");
+    }
+
+    public ArrayList<String> getAllDrawables(){
+        String tempName = getName();
+        tempName = tempName.replaceAll(" ", "_").toLowerCase(Locale.ROOT);
+        ArrayList<String> drawables = new ArrayList<>();
+        for(int i = 1;i < 4;i++){
+            drawables.add(tempName+"_"+i);
+        }
+        return drawables;
     }
 }
 
