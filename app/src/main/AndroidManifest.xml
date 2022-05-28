@@ -17,6 +17,9 @@
             android:exported="false"
             android:theme="@style/Theme.Project2_Imago.NoActionBar" />
         <activity
+            android:name=".FilterActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

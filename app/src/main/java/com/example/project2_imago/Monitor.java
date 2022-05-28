@@ -3,7 +3,8 @@ package com.example.project2_imago;
 import java.util.ArrayList;
 import java.util.Locale;
 
-abstract class Monitor {
+
+abstract class Monitor implements java.io.Serializable {
     String name;
     boolean isBestselling;
     int viewCount;

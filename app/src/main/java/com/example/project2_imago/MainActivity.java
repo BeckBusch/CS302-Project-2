@@ -2,22 +2,36 @@ package com.example.project2_imago;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements ItemClickListener {
 
     String category;
+    private ArrayList<Monitor> monitors;
+    private RecyclerView mRecyclerView;
+    private TopPicksAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
+
         setContentView(R.layout.activity_main);
-        //DataProvider.getTopPicks();
+        mRecyclerView = (RecyclerView) findViewById(R.id.topPicksRecycler);
+        monitors = DataProvider.getTopPicks();
+        mAdapter = new TopPicksAdapter(monitors);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setClickListener(this);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
     }
 
 
@@ -43,5 +57,21 @@ public class MainActivity extends AppCompatActivity {
         designActivity.putExtra("category",category);
         startActivity(designActivity);
         Animatoo.animateSlideLeft(this);
+    }
+
+    @Override
+    public void onClick(View view, int position) {
+        System.out.println("pog");
+        final Monitor monitor = monitors.get(position);
+        Intent i = new Intent(this,ItemActivity.class);
+        i.putExtra("name",monitor.getName());
+        i.putExtra("imagelist",monitor.getAllDrawables());
+        i.putExtra("screenSize",monitor.getScreenSize());
+        i.putExtra("aspectRatio",monitor.getAspectRatio());
+        i.putExtra("brand",monitor.getBrand());
+        i.putExtra("price",monitor.getPrice());
+        System.out.println(monitor.getName());
+        Log.i("Open",monitor.getName());
+        startActivity(i);
     }
 }

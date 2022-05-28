@@ -39,12 +39,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
 
         Bundle extras = getIntent().getExtras();
         category = extras.getString("category");
-//        mActionBarToolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar);
-//        if (mActionBarToolbar != null) {
-//            System.out.println("unpog");
-//        } else
-//        setSupportActionBar(mActionBarToolbar);
-//        getSupportActionBar().setTitle(category);
+
         if (Objects.equals(category, "Gaming")) {
             bindingGaming = ActivityGamingBinding.inflate(getLayoutInflater());
             setContentView(bindingGaming.getRoot());
@@ -82,6 +77,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
 
     public void showFilterActivity(View view) {
         Intent filterActivity = new Intent(this,FilterActivity.class);
+        filterActivity.putExtra("monitorList",monitors);
         startActivity(filterActivity);
     }
 
@@ -105,4 +101,6 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         Log.i("Open",monitor.getName());
         startActivity(i);
     }
+
+
 }

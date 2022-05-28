@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class DataProvider {
     private static ArrayList<Monitor> MonitorData;
 
+
+
     public void addDataProvider() {
         MonitorData.add(new GamingMonitor("Vital Strats 120", false, 0, 592, "AOC", 24, "16:9", "1920x1080", 8, 120, false));
         MonitorData.add(new GamingMonitor("Edge Gaming 27Z", false, 0, 978, "AOC", 27, "16:9", "1920x1080", 1, 144, false));
@@ -107,5 +109,13 @@ public class DataProvider {
 
     public ArrayList<Monitor> returnAll() {
         return MonitorData;
+    }
+
+    public static ArrayList<Monitor> getTopPicks() {
+        ArrayList<Monitor> TempResults = new ArrayList<>();
+        TempResults.add(new GamingMonitor("Vital Strats 120", false, 0, 592, "AOC", 24, "16:9", "1920x1080", 8, 120, false));
+        TempResults.add(new BusinessMonitor("LG Ultrafine 27", false, 0, 663, "LG", 27, "16:9", 100, true));
+        TempResults.add(new DesignMonitor("LG Technik", false, 0, 1170, "LG", 27, "16:9", "3840x2160", "IPS"));
+        return TempResults;
     }
 }

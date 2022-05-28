@@ -16,16 +16,15 @@
         android:src="@drawable/logo"
         app:layout_constraintTop_toTopOf="parent"
         />
-
-    <Button
+    <ImageView
         android:id="@+id/SearchButton"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Search"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
+        android:src="@drawable/search_bar"
+        android:onClick="showSearchActivity"
         app:layout_constraintTop_toBottomOf="@+id/Logo"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView"
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"/>
+
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -43,30 +42,27 @@
             <RelativeLayout
                 android:id="@+id/TopPicks"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="180dp"
+                android:background="@drawable/rounded_rectangle_indigo">
 
                 <TextView
                     android:id="@+id/TopPicksTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white"
+                    android:text="Top Picks"
+                    android:textSize="30sp" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/topPicksRecycler"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:text="Top Picks" />
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TopPicksTitle"
+                    android:orientation="horizontal">
 
-                <LinearLayout
-                    android:id="@+id/TopPicksItems"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="0dp"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    app:layout_constraintTop_toBottomOf="@+id/TopPicksTitle"
-                    tools:layout_editor_absoluteX="16dp">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                    </androidx.recyclerview.widget.RecyclerView>
-                </LinearLayout>
+                </androidx.recyclerview.widget.RecyclerView>
             </RelativeLayout>
 
             <RelativeLayout
@@ -94,7 +90,7 @@
                     android:layout_toEndOf="@+id/GamingImage"
                     android:text="Gaming Monitors"
                     android:textColor="@color/white"
-                    android:textSize="30dp" />
+                    android:textSize="25dp" />
 
                 <TextView
                     android:id="@+id/GamingDescription"
@@ -133,7 +129,7 @@
                     android:layout_toEndOf="@+id/BusinessImage"
                     android:text="Business Monitors"
                     android:textColor="@color/white"
-                    android:textSize="30dp" />
+                    android:textSize="25dp" />
 
                 <TextView
                     android:id="@+id/BusinessDescription"
@@ -172,7 +168,7 @@
                     android:layout_toEndOf="@+id/DesignImage"
                     android:text="Design Monitors"
                     android:textColor="@color/white"
-                    android:textSize="30dp" />
+                    android:textSize="25dp" />
 
                 <TextView
                     android:id="@+id/DesignDescription"
