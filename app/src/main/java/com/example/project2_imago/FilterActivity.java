@@ -1,5 +1,6 @@
 package com.example.project2_imago;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -13,11 +14,16 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.project2_imago.databinding.ActivityFilterBinding;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FilterActivity extends AppCompatActivity {
 
     private ScrollView scroll;
     private ActivityFilterBinding bindingFilter;
+    private HashMap<String,Integer> idsBrand = new HashMap<>();
+    private HashMap<String,Integer> idsAR = new HashMap<>();
+    private HashMap<String,Integer> idsSS = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,7 @@ public class FilterActivity extends AppCompatActivity {
         ArrayList<Integer> screenSizes = new ArrayList<>();
         ArrayList<Integer> vesaSizes = new ArrayList<>();
 
+
         TextView brandTitle = new TextView(this);
         brandTitle.setText("Brand");
         linear.addView(brandTitle);
@@ -54,7 +61,9 @@ public class FilterActivity extends AppCompatActivity {
             String brand = monitor.getBrand();
             if (!brands.contains(brand)) {
                 CheckBox ch = new CheckBox(this);
-                ch.setId(R.id.checkbox1);
+                int newId = View.generateViewId();
+                idsBrand.put(brand,newId);
+                ch.setId(newId);
                 ch.setText(brand);
                 linear.addView(ch);
                 brands.add(brand);
@@ -68,6 +77,9 @@ public class FilterActivity extends AppCompatActivity {
             String aspectRatio = monitor.getAspectRatio();
             if (!aspectRatios.contains(aspectRatio)) {
                 CheckBox ch = new CheckBox(this);
+                int newId = View.generateViewId();
+                idsAR.put(aspectRatio,newId);
+                ch.setId(newId);
                 ch.setText(aspectRatio);
                 linear.addView(ch);
                 aspectRatios.add(aspectRatio);
@@ -82,6 +94,9 @@ public class FilterActivity extends AppCompatActivity {
             if (!screenSizes.contains(screenSize)) {
                 CheckBox ch = new CheckBox(this);
                 ch.setText(screenSize.toString());
+                int newId = View.generateViewId();
+                idsSS.put(screenSize.toString(),newId);
+                ch.setId(newId);
                 linear.addView(ch);
                 screenSizes.add(screenSize);
             }
@@ -89,8 +104,25 @@ public class FilterActivity extends AppCompatActivity {
     }
 
     public void filterRecycler(View view) {
+        ArrayList<String> brandFilter = new ArrayList<>();
+        for (Map.Entry entry : idsBrand.entrySet()) {
+            Integer id = (Integer) entry.getValue();
+            CheckBox checkBox = findViewById(id);
+            if (checkBox.isChecked()) {
+                String x = (String) checkBox.getText();
+                brandFilter.add(x);
+            }
+        }
+        Intent i = new Intent();
+        i.putExtra("brandFilter",brandFilter);
+        setResult(RESULT_OK,i);
         finish();
         Animatoo.animateSlideRight(this);
+    }
+
+    public void onCheckboxClicked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+
     }
 
 }

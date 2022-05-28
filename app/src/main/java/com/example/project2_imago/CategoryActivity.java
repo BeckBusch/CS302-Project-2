@@ -1,12 +1,18 @@
 package com.example.project2_imago;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -31,6 +37,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
     private String category;
     private CategoryAdapter mAdapter;
     private RecyclerView mRecyclerView;
+    private ArrayList<String> brandFilter;
 
     androidx.appcompat.widget.Toolbar mActionBarToolbar;
 
@@ -73,6 +80,9 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
             monitors = DataProvider.returnCategory("Business");
         }
 
+
+
+
         mAdapter = new CategoryAdapter(monitors);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setClickListener(this);
@@ -89,12 +99,6 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
     public void showSearchActivity(View view) {
         Intent searchActivity = new Intent(this, CategoryActivity.class);
         startActivity(searchActivity);
-    }
-
-    public void showFilterActivity(View view) {
-        Intent filterActivity = new Intent(this,FilterActivity.class);
-        filterActivity.putExtra("monitorList",monitors);
-        startActivity(filterActivity);
     }
 
     public void goBack(View view) {
@@ -148,5 +152,55 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.search_icon:
+
+                return true;
+
+            case R.id.filter_icon:
+                Intent filterActivity = new Intent(this,FilterActivity.class);
+                filterActivity.putExtra("monitorList",monitors);
+                mGetContent.launch(filterActivity);
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+    // GetContent creates an ActivityResultLauncher<String> to allow you to pass
+    // in the mime type you'd like to allow the user to select
+    ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                // There are no request codes
+                Intent data = result.getData();
+                Bundle extras = data.getExtras();
+                brandFilter = extras.getStringArrayList("brandFilter");
+                updateRecycler();
+
+
+            }
+        }
+    });
+
+    private void updateRecycler() {
+        if (!brandFilter.isEmpty()){
+            for (Monitor monitor : monitors) {
+                if (!brandFilter.contains(monitor.getBrand())) {
+                    monitors.remove(monitor);
+                }
+            }
+        }
+        mAdapter.notifyDataSetChanged();
+    }
 
 }
