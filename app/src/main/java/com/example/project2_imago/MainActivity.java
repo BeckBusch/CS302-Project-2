@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
     private RecyclerView mRecyclerView;
     private TopPicksAdapter mAdapter;
 
+    DataProvider dataProviderObj = new DataProvider();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
 
         setContentView(R.layout.activity_main);
         mRecyclerView = (RecyclerView) findViewById(R.id.topPicksRecycler);
-        monitors = DataProvider.getTopPicks();
+        monitors = dataProviderObj.getTopPicks();
         mAdapter = new TopPicksAdapter(monitors);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setClickListener(this);

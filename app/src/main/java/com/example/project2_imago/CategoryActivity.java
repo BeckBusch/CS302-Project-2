@@ -46,6 +46,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
     androidx.appcompat.widget.Toolbar mActionBarToolbar;
 
     ArrayList<Monitor> monitors;
+    DataProvider dataProviderObj = new DataProvider();
 
 
     @Override
@@ -63,7 +64,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
             setContentView(bindingGaming.getRoot());
             setSupportActionBar(bindingGaming.toolbar);
             mRecyclerView = (RecyclerView) findViewById(R.id.gamingRecycler);
-            monitors = DataProvider.returnCategory("Gaming");
+            monitors = dataProviderObj.returnCategory("Gaming");
 
         }
         else if (Objects.equals(category, "Design")) {
@@ -72,7 +73,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
             setContentView(bindingDesign.getRoot());
             setSupportActionBar(bindingDesign.toolbar);
             mRecyclerView = (RecyclerView) findViewById(R.id.designRecycler);
-            monitors = DataProvider.returnCategory("Design");
+            monitors = dataProviderObj.returnCategory("Design");
         }
 
         else if (Objects.equals(category, "Business")) {
@@ -81,7 +82,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
             setContentView(bindingBusiness.getRoot());
             setSupportActionBar(bindingBusiness.toolbar);
             mRecyclerView = (RecyclerView) findViewById(R.id.businessRecycler);
-            monitors = DataProvider.returnCategory("Business");
+            monitors = dataProviderObj.returnCategory("Business");
         }
         else if (Objects.equals(category,"Search")) {
             setTitle("Search");
@@ -235,7 +236,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
     public void updateSearchParameters(View view) {
         EditText editText = findViewById(R.id.searchBar);
         String searchTerm = editText.getText().toString();
-        monitors = DataProvider.returnSearch(searchTerm);
+        monitors = dataProviderObj.returnSearch(searchTerm);
         TextView error = (TextView) findViewById(R.id.error);
         if (monitors.isEmpty()) {
             error.setVisibility(View.VISIBLE);
@@ -245,6 +246,5 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setClickListener(this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //monitors = DataProvider.returnSearch(extras.getString("search"));
     }
 }
