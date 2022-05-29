@@ -2,18 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="150dp"
-    android:layout_height="150dp">
+    android:layout_width="120dp"
+    android:layout_height="160dp">
 
-    <ImageView
-        android:id="@+id/Monitor_Pic1"
+    <FrameLayout
+        android:id="@+id/Monitor_Frame"
+        android:background="@color/white"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </ImageView>
+        <ImageView
+            android:id="@+id/Monitor_Pic1"
+            android:layout_width="80dp"
+            android:layout_margin="10dp"
+            android:layout_height="80dp"></ImageView>
+    </FrameLayout>
 
     <TextView
         android:id="@+id/Monitor_Name"
@@ -22,8 +29,9 @@
         android:layout_marginTop="1dp"
         android:text="TextView"
         android:textColor="@color/white"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Monitor_Pic1" />
+        app:layout_constraintTop_toBottomOf="@+id/Monitor_Frame" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -113,9 +113,11 @@ public class DataProvider {
 
     public static ArrayList<Monitor> getTopPicks() {
         ArrayList<Monitor> TempResults = new ArrayList<>();
-        TempResults.add(new GamingMonitor("Vital Strats 120", false, 0, 592, "AOC", 24, "16:9", "1920x1080", 8, 120, false));
-        TempResults.add(new BusinessMonitor("LG Ultrafine 27", false, 0, 663, "LG", 27, "16:9", 100, true));
-        TempResults.add(new DesignMonitor("LG Technik", false, 0, 1170, "LG", 27, "16:9", "3840x2160", "IPS"));
+        TempResults.add(new GamingMonitor("Vital Strats 120", true, 0, 592, "AOC", 24, "16:9", "1920x1080", 8, 120, false));
+        TempResults.add(new BusinessMonitor("LG Ultrafine 27", true, 0, 663, "LG", 27, "16:9", 100, true));
+        TempResults.add(new DesignMonitor("LG Technik", true, 0, 1170, "LG", 27, "16:9", "3840x2160", "IPS"));
+        TempResults.add(new DesignMonitor("ASUS Designer Mega", true, 0, 2233, "ASUS", 34, "21:9", "5120x2160", "IPS"));
+
         return TempResults;
     }
 }

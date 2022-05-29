@@ -70,6 +70,29 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         i.putExtra("aspectRatio",monitor.getAspectRatio());
         i.putExtra("brand",monitor.getBrand());
         i.putExtra("price",monitor.getPrice());
+
+        if (monitor instanceof GamingMonitor) {
+            GamingMonitor gMonitor = (GamingMonitor) monitor;
+            i.putExtra("category","Gaming");
+            i.putExtra("resolution",gMonitor.getResolution());
+            i.putExtra("refreshRate",gMonitor.getRefreshRate());
+            i.putExtra("responseTime",gMonitor.getResponseTime());
+            i.putExtra("curved",gMonitor.getIsCurved());
+        }
+
+        else if (monitor instanceof BusinessMonitor) {
+            BusinessMonitor gMonitor = (BusinessMonitor) monitor;
+            i.putExtra("category","Business");
+            i.putExtra("vesaSize",gMonitor.getVesaSize());
+            i.putExtra("touchscreen",gMonitor.isTouchscreen());
+        }
+
+        else if (monitor instanceof DesignMonitor) {
+            DesignMonitor gMonitor = (DesignMonitor) monitor;
+            i.putExtra("category","Gaming");
+            i.putExtra("resolution",gMonitor.getResolution());
+            i.putExtra("panelType",gMonitor.getPanelType());
+        }
         System.out.println(monitor.getName());
         Log.i("Open",monitor.getName());
         startActivity(i);

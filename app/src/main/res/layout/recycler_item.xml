@@ -1,27 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="120dp">
+
     <RelativeLayout
-        android:layout_height="100dp"
         android:layout_width="match_parent"
-        >
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageView
             android:id="@+id/Monitor_Pic1"
-            android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginStart="10dp">
 
         </ImageView>
+
         <TextView
             android:id="@+id/Monitor_Name"
             android:layout_width="wrap_content"
+            android:layout_marginTop="30dp"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/Monitor_Pic1"
-            android:layout_centerVertical="true"
-            android:textSize="20dp"
-            />
+            android:layout_marginHorizontal="10dp"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:layout_alignBottom="@id/divider"/>
+
+        <ImageView
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/rectangle_teal" />
+
 
     </RelativeLayout>
 

@@ -80,9 +80,6 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
             monitors = DataProvider.returnCategory("Business");
         }
 
-
-
-
         mAdapter = new CategoryAdapter(monitors);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setClickListener(this);
@@ -119,6 +116,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         i.putExtra("price",monitor.getPrice());
 
         if (monitor instanceof GamingMonitor) {
+
             GamingMonitor gMonitor = (GamingMonitor) monitor;
             i.putExtra("category","Gaming");
             i.putExtra("resolution",gMonitor.getResolution());
@@ -136,7 +134,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
 
         else if (monitor instanceof DesignMonitor) {
             DesignMonitor gMonitor = (DesignMonitor) monitor;
-            i.putExtra("category","Gaming");
+            i.putExtra("category","Design");
             i.putExtra("resolution",gMonitor.getResolution());
             i.putExtra("panelType",gMonitor.getPanelType());
         }
@@ -186,20 +184,25 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
                 Bundle extras = data.getExtras();
                 brandFilter = extras.getStringArrayList("brandFilter");
                 updateRecycler();
-
-
             }
         }
     });
 
     private void updateRecycler() {
+
+        ArrayList<Monitor> monitors1 = monitors;
+        mAdapter.notifyDataSetChanged();
         if (!brandFilter.isEmpty()){
             for (Monitor monitor : monitors) {
                 if (!brandFilter.contains(monitor.getBrand())) {
-                    monitors.remove(monitor);
+                    monitors1.remove(monitor);
                 }
             }
         }
+        mAdapter = new CategoryAdapter(monitors);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setClickListener(this);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter.notifyDataSetChanged();
     }
 

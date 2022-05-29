@@ -120,9 +120,4 @@ public class FilterActivity extends AppCompatActivity {
         Animatoo.animateSlideRight(this);
     }
 
-    public void onCheckboxClicked(View view) {
-        boolean checked = ((CheckBox) view).isChecked();
-
-    }
-
 }

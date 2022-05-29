@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/back_button"
         android:onClick="goBack"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/picRecycler"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,15 +26,12 @@
 
     <TextView
         android:id="@+id/Title"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="3"
-        android:maxLines="3"
         android:singleLine="false"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/picRecycler"
-        app:layout_constraintTop_toTopOf="@+id/picRecycler">
+        app:layout_constraintTop_toBottomOf="@+id/picRecycler">
 
     </TextView>
 
@@ -43,26 +40,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/specsTitle"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Title" />
 
     <TextView
         android:id="@+id/specsTitle"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
         android:text="Specifications"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/picRecycler"
+        app:layout_constraintTop_toBottomOf="@+id/price"
         tools:layout_editor_absoluteX="10dp">
 
     </TextView>
 
-    <ScrollView
+    <ImageView
+        android:id="@+id/specsBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/specsTitle"
-        tools:layout_editor_absoluteX="10dp">
+        android:layout_height="5dp"
+        android:layout_marginVertical="10dp"
+        android:src="@drawable/rectangle_indigo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/specsTitle" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/specsBar">
 
         <TableLayout
             android:id="@+id/specsTable"
