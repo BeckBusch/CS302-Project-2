@@ -120,4 +120,17 @@ public class DataProvider {
 
         return TempResults;
     }
+
+    public static ArrayList<Monitor> returnSearch(String searchTerm) {
+        ArrayList<Monitor> TempResults = new ArrayList<>();
+
+        for (Monitor tempMonitor : MonitorData) {
+            String name = tempMonitor.getName();
+            if (name.contains(searchTerm)) {
+                TempResults.add(tempMonitor);
+            }
+        }
+        return TempResults;
+
+    }
 }
