@@ -1,13 +1,13 @@
 package com.example.project2_imago;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class DataProvider {
 
-    public static ArrayList<Monitor> MonitorData = new ArrayList<Monitor>();
+    public static ArrayList<Monitor> MonitorData;
 
     public DataProvider() {
+        MonitorData = new ArrayList<>();
         MonitorData.add(new GamingMonitor("Vital Strats 120", true, 0, 592, "AOC", 24, "16:9", "1920x1080", 8, 120, false));
         MonitorData.add(new GamingMonitor("Edge Gaming 27Z", false, 0, 978, "AOC", 27, "16:9", "1920x1080", 1, 144, false));
         MonitorData.add(new GamingMonitor("UltraGear27", false, 0, 966, "AOC", 27, "16:9", "1920x1080", 1, 144, false));
