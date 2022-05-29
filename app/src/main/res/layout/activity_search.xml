@@ -26,8 +26,10 @@
 
     <EditText
         android:id="@+id/searchBar"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
+        android:hint="Enter search parameters"
         app:layout_anchor="@+id/searchRecycler"
         app:layout_anchorGravity="start|top"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +37,9 @@
 
     <Button
         android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="0.2"
         android:text="Search"
         android:onClick="updateSearchParameters"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,5 +51,16 @@
         android:layout_height="wrap_content"
 
         app:layout_constraintTop_toBottomOf="@id/searchBar" />
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Can't find anything"
+        android:visibility="invisible"
+        android:layout_margin="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/searchRecycler" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

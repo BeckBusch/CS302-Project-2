@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -234,7 +235,10 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         EditText editText = findViewById(R.id.searchBar);
         String searchTerm = editText.getText().toString();
         monitors = DataProvider.returnSearch(searchTerm);
-
+        TextView error = (TextView) findViewById(R.id.error);
+        if (monitors.isEmpty()) {
+            error.setVisibility(View.VISIBLE);
+        } else {error.setVisibility(View.INVISIBLE);}
         mRecyclerView = (RecyclerView) findViewById(R.id.searchRecycler);
         mAdapter = new CategoryAdapter(monitors);
         mRecyclerView.setAdapter(mAdapter);
