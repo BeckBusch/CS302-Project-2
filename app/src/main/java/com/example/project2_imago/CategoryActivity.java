@@ -164,7 +164,9 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.category_action_bar, menu);
+        if (!Objects.equals(category,"Search")) {
+            getMenuInflater().inflate(R.menu.category_action_bar, menu);
+        }
         return true;
     }
 
@@ -172,7 +174,11 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.search_icon:
-
+                Intent searchActivity = new Intent(this,CategoryActivity.class);
+                category = "Search";
+                searchActivity.putExtra("category",category);
+                startActivity(searchActivity);
+                Animatoo.animateSlideLeft(this);
                 return true;
 
             case R.id.filter_icon:
