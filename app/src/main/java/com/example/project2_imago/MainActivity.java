@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         category = "Search";
         searchActivity.putExtra("category",category);
         startActivity(searchActivity);
-        Animatoo.animateSlideLeft(this);
+        Animatoo.animateSlideDown(this);
     }
 
     @Override
@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         System.out.println(monitor.getName());
         Log.i("Open",monitor.getName());
         startActivity(i);
+        Animatoo.animateZoom(this);
     }
 
 

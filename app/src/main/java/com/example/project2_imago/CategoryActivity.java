@@ -160,6 +160,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         System.out.println(monitor.getName());
         Log.i("Open",monitor.getName());
         startActivity(i);
+        Animatoo.animateZoom(this);
     }
 
     @Override
@@ -179,7 +180,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
                 category = "Search";
                 searchActivity.putExtra("category",category);
                 startActivity(searchActivity);
-                Animatoo.animateSlideLeft(this);
+                Animatoo.animateSlideDown(this);
                 return true;
 
             case R.id.filter_icon:
