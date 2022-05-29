@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -24,6 +25,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.project2_imago.databinding.ActivityBusinessBinding;
 import com.example.project2_imago.databinding.ActivityDesignBinding;
 import com.example.project2_imago.databinding.ActivityGamingBinding;
+import com.example.project2_imago.databinding.ActivitySearchBinding;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -34,6 +36,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
     private ActivityGamingBinding bindingGaming;
     private ActivityDesignBinding bindingDesign;
     private ActivityBusinessBinding bindingBusiness;
+    private ActivitySearchBinding bindingSearch;
     private String category;
     private CategoryAdapter mAdapter;
     private RecyclerView mRecyclerView;
@@ -43,6 +46,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
 
     ArrayList<Monitor> monitors;
     ItemViewHolder vh;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +83,23 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
             mRecyclerView = (RecyclerView) findViewById(R.id.businessRecycler);
             monitors = DataProvider.returnCategory("Business");
         }
+        else if (Objects.equals(category,"Search")) {
+            setTitle("Search");
 
-        mAdapter = new CategoryAdapter(monitors);
-        mRecyclerView.setAdapter(mAdapter);
-        mAdapter.setClickListener(this);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        }
+        if (monitors == null) {
+
+        } else {
+            if (monitors.isEmpty()) {
+
+            } else {
+                mAdapter = new CategoryAdapter(monitors);
+                mRecyclerView.setAdapter(mAdapter);
+                mAdapter.setClickListener(this);
+                mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            }
+        }
+
 
         Toolbar myChildToolbar =
                 (Toolbar) findViewById(R.id.toolbar);
@@ -206,4 +222,18 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         mAdapter.notifyDataSetChanged();
     }
 
+    public void updateSearchParameters(View view) {
+        EditText editText = findViewById(R.id.searchBar);
+        String searchTerm = editText.getText().toString();
+        monitors = DataProvider.returnSearch(searchTerm);
+        bindingSearch = ActivitySearchBinding.inflate(getLayoutInflater());
+        setContentView(bindingSearch.getRoot());
+        setSupportActionBar(bindingSearch.toolbar);
+        mRecyclerView = (RecyclerView) findViewById(R.id.searchRecycler);
+        mAdapter = new CategoryAdapter(monitors);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setClickListener(this);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //monitors = DataProvider.returnSearch(extras.getString("search"));
+    }
 }

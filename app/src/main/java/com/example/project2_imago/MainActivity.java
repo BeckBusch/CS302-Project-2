@@ -59,6 +59,14 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         Animatoo.animateSlideLeft(this);
     }
 
+    public void showSearchActivity(View view) {
+        Intent searchActivity = new Intent(this,CategoryActivity.class);
+        category = "Search";
+        searchActivity.putExtra("category",category);
+        startActivity(searchActivity);
+        Animatoo.animateSlideLeft(this);
+    }
+
     @Override
     public void onClick(View view, int position) {
         System.out.println("pog");
