@@ -45,7 +45,6 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
     androidx.appcompat.widget.Toolbar mActionBarToolbar;
 
     ArrayList<Monitor> monitors;
-    ItemViewHolder vh;
 
 
     @Override
@@ -85,6 +84,9 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         }
         else if (Objects.equals(category,"Search")) {
             setTitle("Search");
+            bindingSearch = ActivitySearchBinding.inflate(getLayoutInflater());
+            setContentView(bindingSearch.getRoot());
+            setSupportActionBar(bindingSearch.toolbar);
 
         }
         if (monitors == null) {
@@ -226,9 +228,7 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         EditText editText = findViewById(R.id.searchBar);
         String searchTerm = editText.getText().toString();
         monitors = DataProvider.returnSearch(searchTerm);
-        bindingSearch = ActivitySearchBinding.inflate(getLayoutInflater());
-        setContentView(bindingSearch.getRoot());
-        setSupportActionBar(bindingSearch.toolbar);
+
         mRecyclerView = (RecyclerView) findViewById(R.id.searchRecycler);
         mAdapter = new CategoryAdapter(monitors);
         mRecyclerView.setAdapter(mAdapter);
