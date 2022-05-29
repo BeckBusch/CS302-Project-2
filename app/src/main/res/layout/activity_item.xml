@@ -7,210 +7,212 @@
     android:padding="10dp"
     tools:context=".ItemActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/back_button"
-        android:onClick="goBack"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/picRecycler"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <TextView
-        android:id="@+id/Title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/picRecycler">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Title" />
-
-    <TextView
-        android:id="@+id/specsTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
-        android:text="Specifications"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/price"
-        tools:layout_editor_absoluteX="10dp">
-
-    </TextView>
-
-    <ImageView
-        android:id="@+id/specsBar"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_marginVertical="10dp"
-        android:src="@drawable/rectangle_indigo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/specsTitle" />
-
     <ScrollView
-        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="9dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/specsBar">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TableLayout
-            android:id="@+id/specsTable"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@color/teal_dark">
+            android:layout_height="wrap_content">
 
-            <TableRow>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:onClick="goBack"
+                android:src="@drawable/back_button"
+                app:layout_constraintStart_toStartOf="@+id/price"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Brand:                    " />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/picRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:padding="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
-                <TextView
-                    android:id="@+id/brand"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-            </TableRow>
+            </androidx.recyclerview.widget.RecyclerView>
 
-            <TableRow>
+            <TextView
+                android:id="@+id/Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:textSize="34sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/picRecycler">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Screen Size:" />
+            </TextView>
 
-                <TextView
-                    android:id="@+id/sS"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-            </TableRow>
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/Title"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-            <TableRow>
+            <TextView
+                android:id="@+id/specsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:text="Specifications"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/price">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Aspect Ratio:" />
+            </TextView>
 
-                <TextView
-                    android:id="@+id/aR"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-            </TableRow>
+            <ImageView
+                android:id="@+id/specsBar"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginVertical="10dp"
+                android:src="@drawable/rectangle_indigo"
+                app:layout_constraintTop_toBottomOf="@+id/specsTitle" />
 
-            <TableRow>
+            <TableLayout
+                android:id="@+id/specsTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/teal_dark"
+                app:layout_constraintTop_toBottomOf="@+id/specsBar">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Resolution:" />
+                <TableRow>
 
-                <TextView
-                    android:id="@+id/resolution"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-            </TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Brand:                    " />
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/brand"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </TableRow>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Response Time:" />
+                <TableRow>
 
-                <TextView
-                    android:id="@+id/rT"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-            </TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Screen Size:" />
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/sS"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </TableRow>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Refresh Rate:" />
+                <TableRow>
 
-                <TextView
-                    android:id="@+id/rR"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-            </TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Aspect Ratio:" />
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/aR"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </TableRow>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Curved:" />
+                <TableRow>
 
-                <TextView
-                    android:id="@+id/curved"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-            </TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Resolution:" />
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/resolution"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </TableRow>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Panel Type:" />
+                <TableRow>
 
-                <TextView
-                    android:id="@+id/pT"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-            </TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Response Time:" />
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/rT"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </TableRow>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Vesa Size" />
+                <TableRow>
 
-                <TextView
-                    android:id="@+id/vS"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-            </TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Refresh Rate:" />
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/rR"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </TableRow>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Touchscreen" />
+                <TableRow>
 
-                <TextView
-                    android:id="@+id/tS"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-            </TableRow>
-        </TableLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Curved:" />
+
+                    <TextView
+                        android:id="@+id/curved"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Panel Type:" />
+
+                    <TextView
+                        android:id="@+id/pT"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Vesa Size" />
+
+                    <TextView
+                        android:id="@+id/vS"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Touchscreen" />
+
+                    <TextView
+                        android:id="@+id/tS"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </TableRow>
+            </TableLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
