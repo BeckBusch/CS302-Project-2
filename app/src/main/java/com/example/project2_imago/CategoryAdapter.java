@@ -55,6 +55,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         Context context = imageView.getContext();
         int id = context.getResources().getIdentifier(drawName,"drawable", context.getPackageName());
 
+        TextView sSTextView = viewHolder.getsSsTextView();
+        String sS = ("Screen Size: " + monitor.getScreenSize() + '"');
+        sSTextView.setText(sS);
+
         imageView.setImageResource(id);
     }
 
@@ -73,12 +77,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         public TextView nameTextView;
         public TextView priceTextView;
         public ImageView pic1ItemView;
+        public TextView sSTextView;
 
         public ViewHolder(View v) {
             super(v);
             nameTextView = (TextView) v.findViewById(R.id.Monitor_Name);
             pic1ItemView = (ImageView) v.findViewById(R.id.Monitor_Pic1);
             priceTextView = (TextView) v.findViewById(R.id.price);
+            sSTextView = (TextView) v.findViewById(R.id.screenSize);
+
             v.setTag(v);
             v.setOnClickListener((View.OnClickListener) this);
         }
@@ -88,6 +95,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         }
         public TextView getPriceTextView(){return priceTextView;}
         public ImageView getImageView() { return  pic1ItemView;}
+        public TextView getsSsTextView() { return sSTextView;}
 
         @Override
         public void onClick(View v) {

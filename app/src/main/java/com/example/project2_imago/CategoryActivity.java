@@ -136,7 +136,6 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         i.putExtra("price",monitor.getPrice());
 
         if (monitor instanceof GamingMonitor) {
-
             GamingMonitor gMonitor = (GamingMonitor) monitor;
             i.putExtra("category","Gaming");
             i.putExtra("resolution",gMonitor.getResolution());

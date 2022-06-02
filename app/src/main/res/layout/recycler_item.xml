@@ -16,7 +16,7 @@
             android:layout_width="120dp"
             android:layout_height="100dp"
             android:layout_alignParentStart="true"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="15dp"
             android:layout_marginStart="10dp">
 
         </ImageView>
@@ -24,11 +24,19 @@
         <TextView
             android:id="@+id/Monitor_Name"
             android:layout_width="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/Monitor_Pic1"
             android:layout_marginHorizontal="10dp"
-            android:textSize="20dp" />
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/screenSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_below="@+id/Monitor_Name"
+            android:layout_toEndOf="@id/Monitor_Pic1"/>
 
         <TextView
             android:id="@+id/price"
@@ -36,17 +44,20 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_margin="10dp"
+            android:textSize="15sp"
             android:layout_alignBottom="@id/divider"/>
+
+
 
         <ImageView
             android:id="@+id/divider"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="2dp"
             android:layout_alignParentBottom="true"
             android:layout_margin="10dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/rectangle_teal" />
 

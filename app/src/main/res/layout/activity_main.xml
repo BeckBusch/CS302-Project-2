@@ -22,6 +22,7 @@
         android:layout_height="50dp"
         android:background="@drawable/rounded_rectangle_indigo_white"
         android:layout_margin="10dp"
+        android:elevation="8dp"
         android:onClick="showSearchActivity"
         app:layout_constraintTop_toBottomOf="@+id/Logo"
         app:layout_constraintBottom_toTopOf="@+id/scrollView">
@@ -60,20 +61,18 @@
 
             <RelativeLayout
                 android:id="@+id/TopPicks"
+                style="@style/CategoryHolder"
                 android:layout_width="match_parent"
-                android:layout_marginVertical="20dp"
-                android:layout_height="200dp"
-                android:background="@drawable/rounded_rectangle_indigo">
+                android:layout_height="200dp">
 
                 <TextView
                     android:id="@+id/TopPicksTitle"
+                    style="@style/CategoryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginBottom="5dp"
                     android:layout_centerHorizontal="true"
-                    android:text="Top Picks"
-                    android:textColor="@color/white"
-                    android:textSize="30sp" />
+                    android:text="Top Picks" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -88,10 +87,9 @@
 
             <RelativeLayout
                 android:id="@+id/GamingLayout"
+                style="@style/CategoryHolder"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginVertical="20dp"
-                android:background="@drawable/rounded_rectangle_indigo"
                 android:onClick="ShowGamingActivity">
 
                 <ImageView
@@ -100,38 +98,33 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_margin="10dp"
-                    android:background="@drawable/rounded_rectangle_indigo"
+                    android:background="@drawable/rounded_rectangle_light"
                     android:scaleType="centerCrop"
                     android:src="@drawable/vital_strats_120_1" />
 
                 <TextView
                     android:id="@+id/GamingTitle"
+                    style="@style/CategoryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
                     android:layout_toEndOf="@+id/GamingImage"
-                    android:text="Gaming Monitors"
-                    android:textColor="@color/white"
-                    android:textSize="25dp" />
+                    android:text="Gaming Monitors" />
 
                 <TextView
                     android:id="@+id/GamingDescription"
+                    style="@style/CategoryDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/GamingTitle"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
                     android:layout_toEndOf="@+id/GamingImage"
-                    android:text="Low response times and high refresh rates make these perfect for gaming."
-                    android:textColor="@color/white" />
+                    android:text="Low response times and high refresh rates make these perfect for gaming."/>
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/BusinessLayout"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginVertical="20dp"
-                android:background="@drawable/rounded_rectangle_indigo"
+                style="@style/CategoryHolder"
                 android:onClick="ShowBusinessActivity">
 
                 <ImageView
@@ -145,32 +138,27 @@
 
                 <TextView
                     android:id="@+id/BusinessTitle"
+                    style="@style/CategoryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
                     android:layout_toEndOf="@+id/BusinessImage"
-                    android:text="Business Monitors"
-                    android:textColor="@color/white"
-                    android:textSize="25dp" />
+                    android:text="Business Monitors"/>
 
                 <TextView
                     android:id="@+id/BusinessDescription"
+                    style="@style/CategoryDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/BusinessTitle"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
                     android:layout_toEndOf="@+id/BusinessImage"
-                    android:text="Designed for business users for an office environment."
-                    android:textColor="@color/white" />
+                    android:text="Designed for business users for an office environment." />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/relativeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginVertical="20dp"
-                android:background="@drawable/rounded_rectangle_indigo"
+                style="@style/CategoryHolder"
                 android:onClick="ShowDesignActivity">
 
                 <ImageView
@@ -184,24 +172,20 @@
 
                 <TextView
                     android:id="@+id/DesignTitle"
+                    style="@style/CategoryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:layout_toEndOf="@+id/DesignImage"
-                    android:text="Design Monitors"
-                    android:textColor="@color/white"
-                    android:textSize="25dp" />
+                    android:layout_toEndOf="@id/DesignImage"
+                    android:text="Design Monitors" />
 
                 <TextView
                     android:id="@+id/DesignDescription"
+                    style="@style/CategoryDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/DesignTitle"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
                     android:layout_toEndOf="@+id/DesignImage"
-                    android:text="High colour gamuts for the most accurate visual displays."
-                    android:textColor="@color/white" />
+                    android:text="High colour gamuts for the most accurate visual displays." />
             </RelativeLayout>
 
         </LinearLayout>
