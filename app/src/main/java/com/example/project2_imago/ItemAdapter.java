@@ -16,14 +16,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     private ArrayList<String> drawableNames;
 
-
-    // END_INCLUDE(recyclerViewSampleViewHolder)
-
     public ItemAdapter(ArrayList<String> names) {
         this.drawableNames = names;
     }
 
-    // END_INCLUDE(recyclerViewOnCreateViewHolder)
 
     @Override
     public ItemAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -35,8 +31,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         return new ViewHolder(v);
     }
 
-    // BEGIN_INCLUDE(recyclerViewOnBindViewHolder)
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ItemAdapter.ViewHolder viewHolder, int position) {
         String drawName = drawableNames.get(position);
@@ -51,7 +45,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     public int getItemCount() {
         return drawableNames.size();
     }
-    // END_INCLUDE(recyclerViewOnBindViewHolder)
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 

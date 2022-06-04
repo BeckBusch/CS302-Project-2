@@ -4,7 +4,6 @@ package com.example.project2_imago;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -125,7 +124,6 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
 
     @Override
     public void onClick(View view, int position) {
-        System.out.println("pog");
         final Monitor monitor = monitors.get(position);
         Intent i = new Intent(this,ItemActivity.class);
         i.putExtra("name",monitor.getName());
@@ -158,8 +156,6 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
             i.putExtra("resolution",gMonitor.getResolution());
             i.putExtra("panelType",gMonitor.getPanelType());
         }
-        System.out.println(monitor.getName());
-        Log.i("Open",monitor.getName());
         startActivity(i);
         Animatoo.animateZoom(this);
     }

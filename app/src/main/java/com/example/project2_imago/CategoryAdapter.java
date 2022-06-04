@@ -17,18 +17,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     private ArrayList<Monitor> monitors;
     private ItemClickListener clickListener;
 
-
-    // END_INCLUDE(recyclerViewSampleViewHolder)
-
     public CategoryAdapter(ArrayList<Monitor> monitorList) {
         this.monitors = monitorList;
     }
 
-    // END_INCLUDE(recyclerViewOnCreateViewHolder)
 
     @Override
     public CategoryAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        // Create a new view.
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.recycler_item, viewGroup, false);
@@ -36,8 +31,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         return new ViewHolder(v);
     }
 
-    // BEGIN_INCLUDE(recyclerViewOnBindViewHolder)
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(CategoryAdapter.ViewHolder viewHolder, int position) {
         Monitor monitor = monitors.get(position);
@@ -62,7 +55,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public int getItemCount() {
         return monitors.size();
     }
-    // END_INCLUDE(recyclerViewOnBindViewHolder)
 
     public void setClickListener(ItemClickListener itemClickListener) {
         this.clickListener = itemClickListener;

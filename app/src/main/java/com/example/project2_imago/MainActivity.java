@@ -2,7 +2,6 @@ package com.example.project2_imago;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -71,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
 
     @Override
     public void onClick(View view, int position) {
-        System.out.println("pog");
         final Monitor monitor = monitors.get(position);
         Intent i = new Intent(this,ItemActivity.class);
         i.putExtra("name",monitor.getName());
@@ -103,8 +101,6 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
             i.putExtra("resolution",gMonitor.getResolution());
             i.putExtra("panelType",gMonitor.getPanelType());
         }
-        System.out.println(monitor.getName());
-        Log.i("Open",monitor.getName());
         startActivity(i);
         Animatoo.animateZoom(this);
     }

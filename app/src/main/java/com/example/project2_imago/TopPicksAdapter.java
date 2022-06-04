@@ -17,18 +17,12 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
     private ArrayList<Monitor> monitors;
     private ItemClickListener clickListener;
 
-
-    // END_INCLUDE(recyclerViewSampleViewHolder)
-
     public TopPicksAdapter(ArrayList<Monitor> monitorList) {
         this.monitors = monitorList;
     }
 
-    // END_INCLUDE(recyclerViewOnCreateViewHolder)
-
     @Override
     public TopPicksAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        // Create a new view.
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.top_pick, viewGroup, false);
@@ -36,8 +30,6 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
         return new TopPicksAdapter.ViewHolder(v);
     }
 
-    // BEGIN_INCLUDE(recyclerViewOnBindViewHolder)
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(TopPicksAdapter.ViewHolder viewHolder, int position) {
 
@@ -58,7 +50,6 @@ public class TopPicksAdapter extends RecyclerView.Adapter<TopPicksAdapter.ViewHo
     public int getItemCount() {
         return monitors.size();
     }
-    // END_INCLUDE(recyclerViewOnBindViewHolder)
 
     public void setClickListener(ItemClickListener itemClickListener) {
         this.clickListener = itemClickListener;
