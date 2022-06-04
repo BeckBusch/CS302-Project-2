@@ -1,7 +1,6 @@
 package com.example.project2_imago;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,10 +10,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -184,9 +179,35 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
                 return true;
 
             case R.id.filter_icon:
-                Intent filterActivity = new Intent(this,FilterActivity.class);
-                filterActivity.putExtra("monitorList",monitors);
-                mGetContent.launch(filterActivity);
+                Bundle bundle = new Bundle();
+                ArrayList<String> brands = new ArrayList<>();
+                ArrayList<String> aspectRatios = new ArrayList<>();
+                ArrayList<Integer> screenSizes = new ArrayList<>();
+                for (Monitor monitor:monitors) {
+                    String brand = monitor.getBrand();
+                    Integer screenSize = monitor.getScreenSize();
+                    String aspectRatio = monitor.getAspectRatio();
+                    if (!brands.contains(brand)) {
+                        brands.add(brand);
+                    }
+                    if (!screenSizes.contains(screenSize)) {
+                        screenSizes.add(screenSize);
+                    }
+                    if (!aspectRatios.contains(aspectRatio)) {
+                        aspectRatios.add(aspectRatio);
+                    }
+                }
+
+                Bundle bundleFilter = new Bundle();
+                bundleFilter.putIntegerArrayList("screenSizes",screenSizes);
+                bundleFilter.putStringArrayList("brands",brands);
+                bundleFilter.putStringArrayList("aspectRatios",aspectRatios);
+
+                getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .add(R.id.fragment_container_view, FilterFragment.class, bundleFilter)
+                        .commit();
+
                 return true;
 
             default:
@@ -196,23 +217,6 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
 
         }
     }
-
-    // GetContent creates an ActivityResultLauncher<String> to allow you to pass
-    // in the mime type you'd like to allow the user to select
-    ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-        @Override
-        public void onActivityResult(ActivityResult result) {
-            if (result.getResultCode() == Activity.RESULT_OK) {
-                // There are no request codes
-                Intent data = result.getData();
-                Bundle extras = data.getExtras();
-                brandFilter = extras.getStringArrayList("brandFilter");
-                updateRecycler();
-            }
-        }
-    });
 
     private void updateRecycler() {
 

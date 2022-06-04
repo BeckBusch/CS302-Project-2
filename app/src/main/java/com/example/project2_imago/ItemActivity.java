@@ -30,6 +30,7 @@ public class ItemActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
 
+
         String name;
         name = extras.getString("name");
         TextView nameView = findViewById(R.id.Title);
@@ -43,7 +44,8 @@ public class ItemActivity extends AppCompatActivity {
 
         TableRow brandRow = new TableRow(this);
         TextView brandTitle = new TextView(this);
-        brandTitle.setText("Brand:");
+        brandTitle.setPadding(10,10,10,10);
+        brandTitle.setText("Brand:                            ");
         String brand = extras.getString("brand");
         TextView brandText = new TextView(this);
         brandText.setText(brand);
@@ -53,6 +55,7 @@ public class ItemActivity extends AppCompatActivity {
 
         TableRow aspectRatioRow = new TableRow(this);
         TextView aRTitle = new TextView(this);
+        aRTitle.setPadding(10,10,10,10);
         aRTitle.setText("Aspect Ratio:");
         String aspectRatio = extras.getString("aspectRatio");
         TextView aRText = new TextView(this);
@@ -63,6 +66,7 @@ public class ItemActivity extends AppCompatActivity {
 
         TableRow sSRatioRow = new TableRow(this);
         TextView sSTitle = new TextView(this);
+        sSTitle.setPadding(10,10,10,10);
         sSTitle.setText("Screen Size:");
         String screenSize = (Integer.toString(extras.getInt("screenSize"))+'"');
         TextView sSText = new TextView(this);
@@ -75,6 +79,7 @@ public class ItemActivity extends AppCompatActivity {
             case "Gaming": {
                 TableRow resolutionRow = new TableRow(this);
                 TextView resolutionTitle = new TextView(this);
+                resolutionTitle.setPadding(10,10,10,10);
                 resolutionTitle.setText("Resolution:");
                 String resolution = extras.getString("resolution");
                 TextView resolutionText = new TextView(this);
@@ -85,7 +90,8 @@ public class ItemActivity extends AppCompatActivity {
 
                 TableRow responseTimeRow = new TableRow(this);
                 TextView responseTimeTitle = new TextView(this);
-                responseTimeTitle.setText("Response Time:              ");
+                responseTimeTitle.setPadding(10,10,10,10);
+                responseTimeTitle.setText("Response Time:");
                 String responseTime = (extras.getInt("responseTime") + "ms");
                 TextView responseTimeText = new TextView(this);
                 responseTimeText.setText(responseTime);
@@ -95,6 +101,7 @@ public class ItemActivity extends AppCompatActivity {
 
                 TableRow refreshRateRow = new TableRow(this);
                 TextView refreshRateTitle = new TextView(this);
+                refreshRateTitle.setPadding(10,10,10,10);
                 refreshRateTitle.setText("Refresh Rate:");
                 String refreshRate = (extras.getInt("refreshRate") + "Hz");
                 TextView refreshRateText = new TextView(this);
@@ -111,6 +118,7 @@ public class ItemActivity extends AppCompatActivity {
                 }
                 TableRow curvedRow = new TableRow(this);
                 TextView curvedTitle = new TextView(this);
+                curvedTitle.setPadding(10,10,10,10);
                 curvedTitle.setText("Curved:");
                 TextView curvedText = new TextView(this);
                 curvedText.setText(curved);
@@ -123,6 +131,7 @@ public class ItemActivity extends AppCompatActivity {
 
                 TableRow vesaRow = new TableRow(this);
                 TextView vesaTitle = new TextView(this);
+                vesaTitle.setPadding(10,10,10,10);
                 vesaTitle.setText("Vesa Size:");
                 String vesa = (extras.getInt("vesaSize") + "Hz");
                 TextView vesaText = new TextView(this);
@@ -139,6 +148,7 @@ public class ItemActivity extends AppCompatActivity {
                 }
                 TableRow touchscreenRow = new TableRow(this);
                 TextView touchscreenTitle = new TextView(this);
+                touchscreenTitle.setPadding(10,10,10,10);
                 touchscreenTitle.setText("TouchScreen:");
                 TextView touchscreenText = new TextView(this);
                 touchscreenText.setText(touchscreen);
@@ -150,6 +160,7 @@ public class ItemActivity extends AppCompatActivity {
                 TableRow resolutionRow = new TableRow(this);
                 TextView resolutionTitle = new TextView(this);
                 resolutionTitle.setText("Resolution:");
+                resolutionTitle.setPadding(10,10,10,10);
                 String resolution = extras.getString("resolution");
                 TextView resolutionText = new TextView(this);
                 resolutionText.setText(resolution);
@@ -159,6 +170,7 @@ public class ItemActivity extends AppCompatActivity {
 
                 TableRow panelTypeRow = new TableRow(this);
                 TextView panelTypeTitle = new TextView(this);
+                panelTypeTitle.setPadding(10,10,10,10);
                 panelTypeTitle.setText("Panel Type:");
                 String panelType = extras.getString("panelType");
                 TextView panelTypeText = new TextView(this);
