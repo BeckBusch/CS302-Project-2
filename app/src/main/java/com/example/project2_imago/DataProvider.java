@@ -94,7 +94,16 @@ public class DataProvider {
 
         for (Monitor tempMonitor : MonitorData) {
             String name = tempMonitor.getName().toLowerCase();
-            if (name.contains(searchTerm.toLowerCase())) {
+            String brand = tempMonitor.getBrand().toLowerCase();
+            String size = Integer.toString(tempMonitor.getScreenSize()).toLowerCase();
+            String aspect = tempMonitor.getAspectRatio().toLowerCase();
+
+            if (
+                    name.contains(searchTerm.toLowerCase()) ||
+                    brand.contains(searchTerm.toLowerCase()) ||
+                    size.contains(searchTerm.toLowerCase()) ||
+                    aspect.contains(searchTerm.toLowerCase())
+            ) {
                 TempResults.add(tempMonitor);
             }
         }
