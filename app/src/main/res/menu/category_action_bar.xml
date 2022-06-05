@@ -6,9 +6,4 @@
         android:icon="@drawable/search_icon"
         android:title="Search"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/filter_icon"
-        android:icon="@drawable/filter_icon"
-        android:title="Filter"
-        app:showAsAction="always" />
 </menu>
