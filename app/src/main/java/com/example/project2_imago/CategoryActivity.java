@@ -35,7 +35,6 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
     private String category;
     private CategoryAdapter mAdapter;
     private RecyclerView mRecyclerView;
-    private ArrayList<String> brandFilter;
 
     androidx.appcompat.widget.Toolbar mActionBarToolbar;
 
@@ -173,63 +172,12 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
                 startActivity(searchActivity);
                 Animatoo.animateSlideDown(this);
                 return true;
-
-            case R.id.filter_icon:
-                Bundle bundle = new Bundle();
-                ArrayList<String> brands = new ArrayList<>();
-                ArrayList<String> aspectRatios = new ArrayList<>();
-                ArrayList<Integer> screenSizes = new ArrayList<>();
-                for (Monitor monitor:monitors) {
-                    String brand = monitor.getBrand();
-                    Integer screenSize = monitor.getScreenSize();
-                    String aspectRatio = monitor.getAspectRatio();
-                    if (!brands.contains(brand)) {
-                        brands.add(brand);
-                    }
-                    if (!screenSizes.contains(screenSize)) {
-                        screenSizes.add(screenSize);
-                    }
-                    if (!aspectRatios.contains(aspectRatio)) {
-                        aspectRatios.add(aspectRatio);
-                    }
-                }
-
-                Bundle bundleFilter = new Bundle();
-                bundleFilter.putIntegerArrayList("screenSizes",screenSizes);
-                bundleFilter.putStringArrayList("brands",brands);
-                bundleFilter.putStringArrayList("aspectRatios",aspectRatios);
-
-                getSupportFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .add(R.id.fragment_container_view, FilterFragment.class, bundleFilter)
-                        .commit();
-
-                return true;
-
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
-    }
-
-    private void updateRecycler() {
-
-        ArrayList<Monitor> monitors1 = monitors;
-        mAdapter.notifyDataSetChanged();
-        if (!brandFilter.isEmpty()){
-            for (Monitor monitor : monitors) {
-                if (!brandFilter.contains(monitor.getBrand())) {
-                    monitors1.remove(monitor);
-                }
-            }
-        }
-        mAdapter = new CategoryAdapter(monitors);
-        mRecyclerView.setAdapter(mAdapter);
-        mAdapter.setClickListener(this);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter.notifyDataSetChanged();
     }
 
     public void updateSearchParameters(View view) {
@@ -246,4 +194,6 @@ public class CategoryActivity extends AppCompatActivity implements ItemClickList
         mAdapter.setClickListener(this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
+
+
 }
